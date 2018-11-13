@@ -25,5 +25,9 @@ func main() {
 		c.HTML(http.StatusOK, "index.tmpl.html", nil)
 	})
 
+	router.GET("/service-worker.js", func(c *gin.Context) {
+		c.Redirect(http.StatusPermanentRedirect, "/static/service-worker.js")
+	})
+
 	router.Run(":" + port)
 }
